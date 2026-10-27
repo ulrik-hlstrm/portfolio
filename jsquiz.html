@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            background-color: pink;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .boks {
+            border: 3px solid black;
+            border-radius: 20px;
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            background-color: blueviolet;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .svar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .kort {
+            background-color: antiquewhite;
+            border-radius: 30px;
+            padding: 30px;
+        }
+
+        .kort h2 {
+            text-align: center;
+            border-bottom: 4px solid black;
+            margin-bottom: 15px;
+        }
+
+        .quiz {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>QUIZ</h1>
+    <h2>poeng : <span id="poeng">0</span></h2>
+
+    <div class="quiz">
+
+        <div class="kort">
+            <h2>1. Hva er hovedstaden i Oslo?</h2>
+            <div class="svar">
+                <div class="boks" onclick="riktigSvar(true,this)">Oslo</div>
+                <div class="boks" onclick="riktigSvar(false,this)">Bergen</div>
+                <div class="boks" onclick="riktigSvar(false,this)">Trondheim</div>
+            </div>
+        </div>
+
+        <div class="kort">
+            <h2>2. Hvem vant forrige versjon av the Masters?</h2>
+            <div class="svar">
+                <div class="boks" onclick="riktigSvar(true,this)">Rory Mcilroy</div>
+                <div class="boks" onclick="riktigSvar(false,this)">Bryson Dechambeu</div>
+                <div class="boks" onclick="riktigSvar(false,this)">Tiger Woods</div>
+            </div>
+        </div>
+
+        <div class="kort">
+            <h2>3. Hvilke av disse grønnsakene burde du ALDRI spise?</h2>
+            <div class="svar">
+                <div class="boks" onclick="riktigSvar(false, this)">Gulrot</div>
+                <div class="boks" onclick="riktigSvar(true, this)">Brokkoli</div>
+                <div class="boks" onclick="riktigSvar(false, this)">Potet</div>
+            </div>
+        </div>
+
+        <div class="kort">
+            <h2>4. Hvilket år ble Norge selvstendig?</h2>
+            <div class="svar">
+                <div class="boks" onclick="riktigSvar(false,this)">1814</div>
+                <div class="boks" onclick="riktigSvar(true, this)">1905</div>
+                <div class="boks" onclick="riktigSvar(false, this)">1945</div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        poeng = 0
+        poengElement = document.getElementById("poeng")
+        console.log(poengElement)
+
+
+        function riktigSvar(erSvarKorrekt, boks) {
+            if (erSvarKorrekt) {
+                console.log("sjekker svar..")
+                boks.style.backgroundColor = "green"
+                console.log(boks)
+                poeng += 10
+                poengElement.textContent = poeng
+
+            } else {
+                boks.style.backgroundColor = "red"
+
+            }
+
+            
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
